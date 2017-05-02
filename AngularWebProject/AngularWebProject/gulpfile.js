@@ -1,4 +1,4 @@
-/// <binding BeforeBuild='default' />
+/// <binding />
 /*
 This file is the main entry point for defining Gulp tasks and using Gulp plugins.
 Click here to learn more. https://go.microsoft.com/fwlink/?LinkId=518007
@@ -9,11 +9,11 @@ var gulp = require('gulp');
 var clean = require('gulp-clean');
 
 //Using package to concat files 
-var concat = require("gulp-concat");
-//Using package to minifying files 
-var uglify = require("gulp-uglify");
-//Using package to minifying files 
-var ext_replace = require("gulp-ext-replace");
+//var concat = require("gulp-concat");
+////Using package to minifying files 
+//var uglify = require("gulp-uglify");
+////Using package to minifying files 
+//var ext_replace = require("gulp-ext-replace");
 
 var destPath = './libs/';
 
