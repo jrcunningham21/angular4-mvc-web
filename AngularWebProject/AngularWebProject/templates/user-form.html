@@ -1,0 +1,24 @@
+﻿<h2>Identity</h2>
+
+<div class="container">
+    <h1>Hero Form</h1>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        {{diagnostic}}
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" required
+                   [(ngModel)]="model.email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" required
+                   [(ngModel)]="model.username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password"
+                   [(ngModel)]="model.password" name="password">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>

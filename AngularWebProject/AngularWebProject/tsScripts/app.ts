@@ -8,7 +8,8 @@
       <li *ngFor="let skl of skills">
         {{ skl }}
       </li>
-    </ul>
+    </ul>    
+    <user-form></user-form>
   `
 })
 export class AppComponent {

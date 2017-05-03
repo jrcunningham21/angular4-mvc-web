@@ -8,7 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 ///<reference path="./../typings/globals/core-js/index.d.ts"/>
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var forms_1 = require("@angular/forms");
 var app_1 = require("./app");
+var http_1 = require("@angular/http");
+var user_form_1 = require("./user-form");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -16,8 +19,15 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [app_1.AppComponent],
+        imports: [
+            platform_browser_1.BrowserModule,
+            forms_1.FormsModule,
+            http_1.HttpModule
+        ],
+        declarations: [
+            app_1.AppComponent,
+            user_form_1.UserFormComponent
+        ],
         bootstrap: [app_1.AppComponent]
     })
 ], AppModule);
