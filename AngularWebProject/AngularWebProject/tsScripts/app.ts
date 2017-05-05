@@ -2,14 +2,16 @@
 @Component({
     selector: 'my-app',
     template: `    
-    <h2>My favorite skill is: {{myskills}}</h2>
-    <p>Skill:</p>
-    <ul>
-      <li *ngFor="let skl of skills">
-        {{ skl }}
-      </li>
-    </ul>    
-    <user-form></user-form>
+    <router-outlet>
+        <h2>My favorite skill is: {{myskills}}</h2>
+        <p>Skill:</p>
+        <ul>
+          <li *ngFor="let skl of skills">
+            {{ skl }}
+          </li>
+        <li><a routerLink="/identity" routerLinkActive="active">Identity</a></li>
+        </ul>    
+    </router-outlet>
   `
 })
 export class AppComponent {

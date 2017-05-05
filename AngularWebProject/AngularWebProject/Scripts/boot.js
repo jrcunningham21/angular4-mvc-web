@@ -9,9 +9,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
-var app_1 = require("./app");
 var http_1 = require("@angular/http");
+var primeng_1 = require("primeng/primeng");
+var primeng_2 = require("primeng/primeng");
+var app_1 = require("./app");
 var user_form_1 = require("./user-form");
+var app_routing_1 = require("./app-routing");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -22,7 +25,10 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
-            http_1.HttpModule
+            http_1.HttpModule,
+            app_routing_1.AppRoutingModule,
+            primeng_1.DataListModule,
+            primeng_2.DataTableModule
         ],
         declarations: [
             app_1.AppComponent,

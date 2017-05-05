@@ -1,24 +1,94 @@
 ﻿<h2>Identity</h2>
 
 <div class="container">
-    <h1>Hero Form</h1>
-    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
-        {{diagnostic}}
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" required
-                   [(ngModel)]="model.email" name="email">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Add User Form</h1>
+            <form (ngSubmit)="onSubmitUser()" #userForm="ngForm">
+                {{diagnostic}}
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" required
+                           [(ngModel)]="model.email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" required
+                           [(ngModel)]="model.username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password"
+                           [(ngModel)]="model.password" name="password">
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" required
-                   [(ngModel)]="model.username" name="username">
+        <div class="col-md-6">
+            <p-dataTable [value]="users">
+                <p-header>
+                    List of Users
+                </p-header>
+                <p-column field="UserName" header="Username"></p-column>
+                <p-column field="Email" header="Email"></p-column>
+                <p-column field="Id" header="ID"></p-column>
+            </p-dataTable>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password"
-                   [(ngModel)]="model.password" name="password">
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Add Role Form</h1>
+            <form (ngSubmit)="onSubmitRole()" #roleForm="ngForm">
+                {{roleDiagnostic}}
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" class="form-control" id="role" required
+                           [(ngModel)]="role" name="role">
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-    </form>
+        <div class="col-md-6">
+            <p-dataTable [value]="roles">
+                <p-header>
+                    List of Roles
+                </p-header>
+                <p-column field="Name" header="Name"></p-column>
+                <p-column field="Id" header="ID"></p-column>
+            </p-dataTable>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <h1>Add User</h1>
+            <p-dataTable [value]="users" selectionMode="single" (onRowSelect)="onUserSelect($event)" [(selection)]="selectedUser">
+                <p-header>
+                    List of Users
+                </p-header>
+                <p-column field="UserName" header="Username"></p-column>
+                <p-column field="Email" header="Email"></p-column>
+            </p-dataTable>
+        </div>
+        <div class="col-md-3">
+            <h1>To Role</h1>
+            <p-dataTable [value]="roles" selectionMode="single" (onRowSelect)="onRoleSelect($event)" [(selection)]="selectedRole">
+                <p-header>
+                    List of Roles
+                </p-header>
+                <p-column field="Name" header="Name"></p-column>
+            </p-dataTable>
+        </div>
+        <div class="col-md-3">
+            <button (click)="onAddUserToRole()" class="btn btn-success">Add User to Role</button>
+        </div>
+        <div class="col-md-3">
+            <p-dataTable [value]="roleList">
+                <p-header>
+                    Users In Roles
+                </p-header>
+                <p-column field="UserName" header="Username"></p-column>
+                <p-column field="Roles" header="Roles"></p-column>
+            </p-dataTable>
+        </div>
+    </div>
 </div>

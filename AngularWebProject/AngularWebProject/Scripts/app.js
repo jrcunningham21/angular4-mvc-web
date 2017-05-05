@@ -17,7 +17,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "    \n    <h2>My favorite skill is: {{myskills}}</h2>\n    <p>Skill:</p>\n    <ul>\n      <li *ngFor=\"let skl of skills\">\n        {{ skl }}\n      </li>\n    </ul>    \n    <user-form></user-form>\n  "
+        template: "    \n    <router-outlet>\n        <h2>My favorite skill is: {{myskills}}</h2>\n        <p>Skill:</p>\n        <ul>\n          <li *ngFor=\"let skl of skills\">\n            {{ skl }}\n          </li>\n        <li><a routerLink=\"/identity\" routerLinkActive=\"active\">Identity</a></li>\n        </ul>    \n    </router-outlet>\n  "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

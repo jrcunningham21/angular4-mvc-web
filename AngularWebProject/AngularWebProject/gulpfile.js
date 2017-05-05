@@ -31,7 +31,8 @@ gulp.task('scriptsNStyles', function () {
         'rxjs/**',
         'zone.js/dist/*.js',
         '@angular/**/bundles/*.js',
-        'bootstrap/dist/js/*.js'
+        'bootstrap/dist/js/*.js',
+        'primeng/**'
     ], {
             cwd: 'node_modules/**'
         })
@@ -85,7 +86,7 @@ gulp.task('watch.ts', ['ts'], function () {
 //    console.log('EXTENSION CHANGE ON SCRIPTS COMPLETED');
 //});
 
-gulp.task('default', ['scriptsNStyles', 'watch']);
+gulp.task('default', [/*'scriptsNStyles', */'watch']);
 
 //gulp.task('default', function () {
 //    // place code for your default task here

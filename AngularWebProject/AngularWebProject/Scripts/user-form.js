@@ -13,20 +13,86 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise.js");
 require("rxjs/add/operator/map");
 var user_1 = require("./user");
+var userRole_1 = require("./userRole");
+//import { UserService } from './user-service';
 var UserFormComponent = (function () {
     function UserFormComponent(http) {
         this.http = http;
-        this.model = new user_1.User('jrcunningham21', 'jrc@123.com', 'password');
-        this.submitted = false;
+        this.model = new user_1.User('', '', '');
+        this.getUsers();
+        this.getRoles();
     }
-    UserFormComponent.prototype.onSubmit = function () {
-        this.submitted = true;
-        this.http.get('Identity/CreateUser')
-            .subscribe(function (next) { return console.log(next); }, function (error) { return console.log(error); });
+    UserFormComponent.prototype.onRoleSelect = function (event) {
+        debugger;
+    };
+    UserFormComponent.prototype.onUserSelect = function (event) {
+        debugger;
+    };
+    UserFormComponent.prototype.getUsers = function () {
+        var _this = this;
+        this.http.get('Identity/GetUsers')
+            .subscribe(function (next) {
+            _this.users = next.json();
+            var usersLength = _this.users.length;
+            var username = "";
+            _this.roleList = [];
+            for (var i = 0; i < usersLength; i++) {
+                username = _this.users[i].UserName;
+                var rolesLength = _this.users[i].Roles.length;
+                _this.roleString = "";
+                for (var j = 0; j < rolesLength; j++) {
+                    if (j == 0)
+                        _this.roleString += _this.users[i].Roles[j].RoleId;
+                    else
+                        _this.roleString += ", " + _this.users[i].Roles[j].RoleId;
+                }
+                _this.userRole = new userRole_1.UserRole(username.toString(), _this.roleString);
+                _this.roleList.push(_this.userRole);
+            }
+        }, function (error) { return console.log(error); });
+    };
+    UserFormComponent.prototype.getRoles = function () {
+        var _this = this;
+        this.http.get('Identity/GetRoles')
+            .subscribe(function (next) {
+            _this.roles = next.json();
+        }, function (error) { return console.log(error); });
+    };
+    UserFormComponent.prototype.onAddUserToRole = function () {
+        var _this = this;
+        var data = { user: this.selectedUser, roleName: this.selectedRole.Name };
+        this.http.post('Identity/AddUserToRole', data)
+            .subscribe(function (next) {
+            _this.selectedRole = null;
+            _this.selectedUser = null;
+            _this.getUsers();
+        }, function (error) { return console.log(error); });
+    };
+    UserFormComponent.prototype.onSubmitRole = function () {
+        var _this = this;
+        this.http.post('Identity/CreateRole', { roleName: this.role })
+            .subscribe(function (next) {
+            _this.getRoles();
+            _this.role = "";
+        }, function (error) { return console.log(error); });
+    };
+    UserFormComponent.prototype.onSubmitUser = function () {
+        var _this = this;
+        var data = { user: this.model, password: this.model.password };
+        this.http.post('Identity/CreateUser', data)
+            .subscribe(function (next) {
+            _this.getUsers();
+            _this.model = new user_1.User('', '', '');
+        }, function (error) { return console.log(error); });
     };
     Object.defineProperty(UserFormComponent.prototype, "diagnostic", {
         // TODO: Remove this when we're done
         get: function () { return JSON.stringify(this.model); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UserFormComponent.prototype, "roleDiagnostic", {
+        get: function () { return JSON.stringify(this.role); },
         enumerable: true,
         configurable: true
     });
@@ -35,7 +101,7 @@ var UserFormComponent = (function () {
 UserFormComponent = __decorate([
     core_1.Component({
         selector: 'user-form',
-        templateUrl: '/templates/user-form.html'
+        templateUrl: 'templates/user-form.html'
     }),
     __metadata("design:paramtypes", [http_1.Http])
 ], UserFormComponent);
