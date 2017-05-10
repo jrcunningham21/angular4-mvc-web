@@ -11,6 +11,9 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var primeng_1 = require("primeng/primeng");
 var primeng_2 = require("primeng/primeng");
+var auth_service_1 = require("./auth.service");
+var auth_http_service_1 = require("./auth-http.service");
+var token_service_1 = require("./token.service");
 var user_service_1 = require("./user.service");
 var user_component_1 = require("./user.component");
 var forms_2 = require("@angular/forms");
@@ -30,7 +33,10 @@ UserModule = __decorate([
         ],
         providers: [
             forms_2.FormBuilder,
-            user_service_1.UserService
+            user_service_1.UserService,
+            auth_service_1.AuthenticationService,
+            auth_http_service_1.AuthHttp,
+            token_service_1.TokenService
         ],
         exports: [
             user_component_1.UserFormComponent
@@ -41,4 +47,3 @@ UserModule = __decorate([
     })
 ], UserModule);
 exports.UserModule = UserModule;
-//# sourceMappingURL=user.module.js.map

@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 import { DataListModule } from 'primeng/primeng';
 import { DataTableModule, SharedModule } from 'primeng/primeng';
 
+import { AuthenticationService } from './auth.service';
+import { AuthHttp } from './auth-http.service';
+import { TokenService } from './token.service';
 import { UserService } from './user.service';
 import { UserFormComponent } from './user.component';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
@@ -19,7 +22,10 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
     ],
     providers: [
         FormBuilder,
-        UserService
+        UserService,
+        AuthenticationService,
+        AuthHttp,
+        TokenService
     ],
     exports: [
         UserFormComponent

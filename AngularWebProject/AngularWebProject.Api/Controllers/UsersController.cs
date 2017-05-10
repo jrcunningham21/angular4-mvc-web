@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace AngularWebProject.Api.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [RoutePrefix("api/Users")]
     public class UsersController : ApiController
     {

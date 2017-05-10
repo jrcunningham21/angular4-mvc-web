@@ -373,6 +373,14 @@ namespace AngularWebProject.Api.Controllers
             return Ok();
         }
 
+        [Authorize]
+        [HttpGet]
+        [Route("Verify")]
+        public IHttpActionResult Verify()
+        {
+            return Ok();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && _userManager != null)

@@ -15,10 +15,14 @@ require("rxjs/add/operator/map");
 var user_model_1 = require("./Models/user.model");
 var user_role_model_1 = require("./Models/user-role.model");
 var user_service_1 = require("./user.service");
+var auth_service_1 = require("./auth.service");
+var auth_http_service_1 = require("./auth-http.service");
 var UserFormComponent = (function () {
-    function UserFormComponent(http, userService) {
+    function UserFormComponent(http, userService, authService, authHttp) {
         this.http = http;
         this.userService = userService;
+        this.authService = authService;
+        this.authHttp = authHttp;
         this.model = new user_model_1.User();
         this.getUsers();
         this.getRoles();
@@ -32,10 +36,9 @@ var UserFormComponent = (function () {
     UserFormComponent.prototype.getUsers = function () {
         var _this = this;
         //this.http.get('Identity/GetUsers')
-        this.http.get('http://localhost:54449/api/Users/Get')
+        this.authHttp.get('http://localhost:54449/api/Users/Get')
             .subscribe(function (next) {
             _this.users = next.json();
-            debugger;
             var usersLength = _this.users.length;
             var username = "";
             _this.roleList = [];
@@ -90,6 +93,10 @@ var UserFormComponent = (function () {
             _this.model = new user_model_1.User();
         }, function (error) { return console.log(error); });
     };
+    UserFormComponent.prototype.submitForm = function () {
+        this.authService.login(this.email, this.password);
+        this.getUsers();
+    };
     Object.defineProperty(UserFormComponent.prototype, "diagnostic", {
         // TODO: Remove this when we're done
         get: function () { return JSON.stringify(this.model); },
@@ -109,7 +116,8 @@ UserFormComponent = __decorate([
         templateUrl: 'templates/user-form.html'
     }),
     __metadata("design:paramtypes", [http_1.Http,
-        user_service_1.UserService])
+        user_service_1.UserService,
+        auth_service_1.AuthenticationService,
+        auth_http_service_1.AuthHttp])
 ], UserFormComponent);
 exports.UserFormComponent = UserFormComponent;
-//# sourceMappingURL=user.component.js.map

@@ -9,7 +9,8 @@ import 'rxjs/add/operator/map';
 import { User } from './Models/user.model';
 import { UserRole } from './Models/user-role.model';
 import { UserService } from './user.service';
-
+import { AuthenticationService } from './auth.service';
+import { AuthHttp } from './auth-http.service';
 
 @Component({
     selector: 'user-form',
@@ -24,13 +25,18 @@ export class UserFormComponent {
     selectedRole: any;
     userRoles: any;
 
+    email: string;
+    password: string;
+
     userRole: UserRole;
     roleList: UserRole[];   
     roleString: string;
 
     constructor(
         private http: Http,
-        private userService: UserService
+        private userService: UserService,
+        private authService: AuthenticationService,
+        private authHttp: AuthHttp
     ) { 
         this.getUsers();
         this.getRoles();
@@ -45,11 +51,10 @@ export class UserFormComponent {
 
     getUsers() {
         //this.http.get('Identity/GetUsers')
-        this.http.get('http://localhost:54449/api/Users/Get')
+        this.authHttp.get('http://localhost:54449/api/Users/Get')
             .subscribe(
             (next) => {
                 this.users = next.json();
-                debugger;
                 var usersLength = this.users.length;
                 var username = "";
                 this.roleList = [];
@@ -120,6 +125,12 @@ export class UserFormComponent {
             },
             error => console.log(error)
             );
+    }
+
+    submitForm() {
+
+        this.authService.login(this.email, this.password);
+        this.getUsers();
     }
 
     // TODO: Remove this when we're done

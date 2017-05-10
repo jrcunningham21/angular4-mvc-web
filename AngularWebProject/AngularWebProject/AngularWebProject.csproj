@@ -1855,6 +1855,9 @@
     <TypeScriptCompile Include="libs\rxjs\util\UnsubscriptionError.d.ts" />
     <TypeScriptCompile Include="tsScripts\app.component.ts" />
     <TypeScriptCompile Include="tsScripts\app.module.ts" />
+    <TypeScriptCompile Include="tsScripts\auth-http.service.ts" />
+    <TypeScriptCompile Include="tsScripts\auth.service.ts" />
+    <TypeScriptCompile Include="tsScripts\token.service.ts" />
     <TypeScriptCompile Include="tsScripts\main.ts" />
     <TypeScriptCompile Include="tsScripts\user.component.ts" />
     <TypeScriptCompile Include="tsScripts\user.module.ts" />
