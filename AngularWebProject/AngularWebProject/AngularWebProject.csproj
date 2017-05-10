@@ -747,9 +747,8 @@
     <Content Include="libs\zone.js\dist\zone.js" />
     <Content Include="libs\zone.js\dist\zone.min.js" />
     <Content Include="libs\zone.js\dist\zone_externs.js" />
-    <Content Include="Scripts\app-routing.js" />
-    <Content Include="Scripts\app.js" />
-    <Content Include="Scripts\boot.js" />
+    <Content Include="Scripts\app.component.js" />
+    <Content Include="Scripts\app.module.js" />
     <Content Include="Scripts\js\bootstrap.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -1101,9 +1100,8 @@
     <Content Include="libs\rxjs\util\toSubscriber.js.map" />
     <Content Include="libs\rxjs\util\tryCatch.js.map" />
     <Content Include="libs\rxjs\util\UnsubscriptionError.js.map" />
-    <Content Include="Scripts\app.js.map" />
-    <Content Include="Scripts\boot.js.map" />
-    <Content Include="Scripts\app-routing.js.map" />
+    <Content Include="Scripts\app.component.js.map" />
+    <Content Include="Scripts\app.module.js.map" />
     <None Include="Scripts\js\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\js\jquery-1.10.2.js" />
     <Content Include="Scripts\js\jquery-1.10.2.min.js" />
@@ -1116,10 +1114,12 @@
     <Content Include="Scripts\js\respond.js" />
     <Content Include="Scripts\js\respond.min.js" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\Models\user-role.model.js" />
+    <Content Include="Scripts\Models\user.model.js" />
     <Content Include="Scripts\systemjs.config.js" />
-    <Content Include="Scripts\user-form.js" />
-    <Content Include="Scripts\user-service.js" />
-    <Content Include="Scripts\user.js" />
+    <Content Include="Scripts\user.component.js" />
+    <Content Include="Scripts\user.module.js" />
+    <Content Include="Scripts\user.service.js" />
     <Content Include="templates\user-form.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1142,9 +1142,11 @@
     <Content Include="typings\globals\node\typings.json" />
     <Content Include="Scripts\main.js.map" />
     <Content Include="Views\Identity\Index.cshtml" />
-    <Content Include="Scripts\user-form.js.map" />
-    <Content Include="Scripts\user.js.map" />
-    <Content Include="Scripts\user-service.js.map" />
+    <Content Include="Scripts\Models\user-role.model.js.map" />
+    <Content Include="Scripts\Models\user.model.js.map" />
+    <Content Include="Scripts\user.component.js.map" />
+    <Content Include="Scripts\user.module.js.map" />
+    <Content Include="Scripts\user.service.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1851,14 +1853,14 @@
     <TypeScriptCompile Include="libs\rxjs\util\toSubscriber.d.ts" />
     <TypeScriptCompile Include="libs\rxjs\util\tryCatch.d.ts" />
     <TypeScriptCompile Include="libs\rxjs\util\UnsubscriptionError.d.ts" />
-    <TypeScriptCompile Include="tsScripts\app-routing.ts" />
-    <TypeScriptCompile Include="tsScripts\app.ts" />
-    <TypeScriptCompile Include="tsScripts\boot.ts" />
+    <TypeScriptCompile Include="tsScripts\app.component.ts" />
+    <TypeScriptCompile Include="tsScripts\app.module.ts" />
     <TypeScriptCompile Include="tsScripts\main.ts" />
-    <TypeScriptCompile Include="tsScripts\user-form.ts" />
-    <TypeScriptCompile Include="tsScripts\user-service.ts" />
-    <TypeScriptCompile Include="tsScripts\user.ts" />
-    <TypeScriptCompile Include="tsScripts\userRole.ts" />
+    <TypeScriptCompile Include="tsScripts\user.component.ts" />
+    <TypeScriptCompile Include="tsScripts\user.module.ts" />
+    <TypeScriptCompile Include="tsScripts\user.service.ts" />
+    <TypeScriptCompile Include="tsScripts\Models\user.model.ts" />
+    <TypeScriptCompile Include="tsScripts\Models\user-role.model.ts" />
     <TypeScriptCompile Include="typings\globals\core-js\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />

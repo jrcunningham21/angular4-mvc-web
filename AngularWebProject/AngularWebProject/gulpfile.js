@@ -86,7 +86,7 @@ gulp.task('watch.ts', ['ts'], function () {
 //    console.log('EXTENSION CHANGE ON SCRIPTS COMPLETED');
 //});
 
-gulp.task('default', [/*'scriptsNStyles', */'watch']);
+gulp.task('default', ['scriptsNStyles','watch']);
 
 //gulp.task('default', function () {
 //    // place code for your default task here

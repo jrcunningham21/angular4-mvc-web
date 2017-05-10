@@ -9,7 +9,7 @@ var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'ASP.NET MVC 5 with Angular 2';
-        this.skills = ['MVC 5', 'Angular 2', 'TypeScript', 'Visual Studio 2017'];
+        this.skills = ['MVC 5', 'Angular 2', 'TypeScript', 'Visual Studio 2017', 'Identity', 'OAuth'];
         this.myskills = this.skills[1];
     }
     return AppComponent;
@@ -17,8 +17,8 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "    \n    <router-outlet>\n        <h2>My favorite skill is: {{myskills}}</h2>\n        <p>Skill:</p>\n        <ul>\n          <li *ngFor=\"let skl of skills\">\n            {{ skl }}\n          </li>\n        <li><a routerLink=\"/identity\" routerLinkActive=\"active\">Identity</a></li>\n        </ul>    \n    </router-outlet>\n  "
+        template: "    \n        <h2>My favorite skill is: {{myskills}}</h2>\n        <p>Skill:</p>\n        <ul>\n          <li *ngFor=\"let skl of skills\">\n            {{ skl }}\n          </li>        \n        </ul>    \n        <user-form></user-form>\n  "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=app.component.js.map

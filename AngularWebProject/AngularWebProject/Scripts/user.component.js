@@ -12,13 +12,14 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise.js");
 require("rxjs/add/operator/map");
-var user_1 = require("./user");
-var userRole_1 = require("./userRole");
-//import { UserService } from './user-service';
+var user_model_1 = require("./Models/user.model");
+var user_role_model_1 = require("./Models/user-role.model");
+var user_service_1 = require("./user.service");
 var UserFormComponent = (function () {
-    function UserFormComponent(http) {
+    function UserFormComponent(http, userService) {
         this.http = http;
-        this.model = new user_1.User('', '', '');
+        this.userService = userService;
+        this.model = new user_model_1.User();
         this.getUsers();
         this.getRoles();
     }
@@ -46,7 +47,9 @@ var UserFormComponent = (function () {
                     else
                         _this.roleString += ", " + _this.users[i].Roles[j].RoleId;
                 }
-                _this.userRole = new userRole_1.UserRole(username.toString(), _this.roleString);
+                _this.userRole = new user_role_model_1.UserRole();
+                _this.userRole.UserName = username.toString();
+                _this.userRole.Roles = _this.roleString;
                 _this.roleList.push(_this.userRole);
             }
         }, function (error) { return console.log(error); });
@@ -82,7 +85,7 @@ var UserFormComponent = (function () {
         this.http.post('Identity/CreateUser', data)
             .subscribe(function (next) {
             _this.getUsers();
-            _this.model = new user_1.User('', '', '');
+            _this.model = new user_model_1.User();
         }, function (error) { return console.log(error); });
     };
     Object.defineProperty(UserFormComponent.prototype, "diagnostic", {
@@ -103,7 +106,8 @@ UserFormComponent = __decorate([
         selector: 'user-form',
         templateUrl: 'templates/user-form.html'
     }),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http,
+        user_service_1.UserService])
 ], UserFormComponent);
 exports.UserFormComponent = UserFormComponent;
-//# sourceMappingURL=user-form.js.map
+//# sourceMappingURL=user.component.js.map

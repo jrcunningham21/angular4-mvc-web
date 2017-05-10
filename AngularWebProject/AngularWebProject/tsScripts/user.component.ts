@@ -6,9 +6,9 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise.js';
 import 'rxjs/add/operator/map';
 
-import { User } from './user';
-import { UserRole } from './userRole';
-//import { UserService } from './user-service';
+import { User } from './Models/user.model';
+import { UserRole } from './Models/user-role.model';
+import { UserService } from './user.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ import { UserRole } from './userRole';
     templateUrl: 'templates/user-form.html'
 })
 export class UserFormComponent {
-    model = new User('', '', '');
+    model = new User();
     users: any;
     role: any;
     roles: any;
@@ -29,7 +29,8 @@ export class UserFormComponent {
     roleString: string;
 
     constructor(
-        private http: Http
+        private http: Http,
+        private userService: UserService
     ) { 
         this.getUsers();
         this.getRoles();
@@ -62,7 +63,10 @@ export class UserFormComponent {
                         else
                             this.roleString += ", " + this.users[i].Roles[j].RoleId;
                     }
-                    this.userRole = new UserRole(username.toString(), this.roleString);
+                    this.userRole = new UserRole();
+                    this.userRole.UserName = username.toString();
+                    this.userRole.Roles = this.roleString;
+
                     this.roleList.push(this.userRole);
                 }
             },
@@ -110,7 +114,7 @@ export class UserFormComponent {
             .subscribe(
             next => {
                 this.getUsers();
-                this.model = new User('', '', '');
+                this.model = new User();
             },
             error => console.log(error)
             );
