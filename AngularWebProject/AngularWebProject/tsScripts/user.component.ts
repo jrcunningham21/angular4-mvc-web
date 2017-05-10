@@ -44,10 +44,12 @@ export class UserFormComponent {
     }
 
     getUsers() {
-        this.http.get('Identity/GetUsers')
+        //this.http.get('Identity/GetUsers')
+        this.http.get('http://localhost:54449/api/Users/Get')
             .subscribe(
             (next) => {
                 this.users = next.json();
+                debugger;
                 var usersLength = this.users.length;
                 var username = "";
                 this.roleList = [];

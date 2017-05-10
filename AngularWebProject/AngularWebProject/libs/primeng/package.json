@@ -1,19 +1,11 @@
 {
   "_args": [
     [
-      {
-        "raw": "primeng",
-        "scope": null,
-        "escapedName": "primeng",
-        "name": "primeng",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
-      },
-      "C:\\Users\\jcunningham\\Desktop\\Git\\angular4-mvc-web\\AngularWebProject\\AngularWebProject"
+      "primeng@^4.0.0",
+      "C:\\Users\\jcunningham\\Desktop\\NewGit\\angular4-mvc-web\\AngularWebProject\\AngularWebProject"
     ]
   ],
-  "_from": "primeng@latest",
+  "_from": "primeng@>=4.0.0-0 <5.0.0-0",
   "_id": "primeng@4.0.0",
   "_inCache": true,
   "_location": "/primeng",
@@ -23,29 +15,27 @@
     "tmp": "tmp/primeng-4.0.0.tgz_1493581332036_0.46951314457692206"
   },
   "_npmUser": {
-    "name": "cagatay.civici",
-    "email": "cagatay.civici@gmail.com"
+    "email": "cagatay.civici@gmail.com",
+    "name": "cagatay.civici"
   },
   "_npmVersion": "4.1.2",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "primeng",
-    "scope": null,
-    "escapedName": "primeng",
     "name": "primeng",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
+    "raw": "primeng@^4.0.0",
+    "rawSpec": "^4.0.0",
+    "scope": null,
+    "spec": ">=4.0.0-0 <5.0.0-0",
+    "type": "range"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/primeng/-/primeng-4.0.0.tgz",
   "_shasum": "6e813341fb30cf35cefde5f2e5d0c4cc000652e6",
   "_shrinkwrap": null,
-  "_spec": "primeng",
-  "_where": "C:\\Users\\jcunningham\\Desktop\\Git\\angular4-mvc-web\\AngularWebProject\\AngularWebProject",
+  "_spec": "primeng@^4.0.0",
+  "_where": "C:\\Users\\jcunningham\\Desktop\\NewGit\\angular4-mvc-web\\AngularWebProject\\AngularWebProject",
   "bugs": {
     "url": "https://github.com/primefaces/primeng/issues"
   },
@@ -74,6 +64,7 @@
   },
   "gitHead": "655c0ea2c0c98e46a3865cb1cc0dd9739f927391",
   "homepage": "https://github.com/primefaces/primeng#readme",
+  "installable": true,
   "license": "MIT",
   "maintainers": [
     {
@@ -83,7 +74,6 @@
   ],
   "name": "primeng",
   "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/primefaces/primeng.git"

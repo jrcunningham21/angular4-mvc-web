@@ -31,9 +31,11 @@ var UserFormComponent = (function () {
     };
     UserFormComponent.prototype.getUsers = function () {
         var _this = this;
-        this.http.get('Identity/GetUsers')
+        //this.http.get('Identity/GetUsers')
+        this.http.get('http://localhost:54449/api/Users/Get')
             .subscribe(function (next) {
             _this.users = next.json();
+            debugger;
             var usersLength = _this.users.length;
             var username = "";
             _this.roleList = [];
