@@ -36,7 +36,7 @@ var UserFormComponent = (function () {
     UserFormComponent.prototype.getUsers = function () {
         var _this = this;
         //this.http.get('Identity/GetUsers')
-        this.authHttp.get('http://localhost:54449/api/Users/Get')
+        this.authHttp.get('http://localhost:54449/api/Users')
             .subscribe(function (next) {
             _this.users = next.json();
             var usersLength = _this.users.length;
@@ -93,11 +93,11 @@ var UserFormComponent = (function () {
             _this.model = new user_model_1.User();
         }, function (error) { return console.log(error); });
     };
-    UserFormComponent.prototype.submitForm = function () {
-        this.authService.login(this.email, this.password);
-        this.getUsers();
-    };
     Object.defineProperty(UserFormComponent.prototype, "diagnostic", {
+        //onSubmitAuth() {
+        //    this.authService.login(this.email, this.password);
+        //    this.getUsers();
+        //}
         // TODO: Remove this when we're done
         get: function () { return JSON.stringify(this.model); },
         enumerable: true,
@@ -121,3 +121,4 @@ UserFormComponent = __decorate([
         auth_http_service_1.AuthHttp])
 ], UserFormComponent);
 exports.UserFormComponent = UserFormComponent;
+//# sourceMappingURL=user.component.js.map

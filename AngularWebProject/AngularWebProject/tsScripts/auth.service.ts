@@ -44,7 +44,6 @@ export class AuthenticationService {
         this.http.post(this.baseAuthUrl + 'Token', `grant_type=password&username=${email}&password=${password}`)
             .subscribe(
             success => {
-                debugger;
                 let response = success.json();
                 this.tokenService.saveToken(response.access_token);
                 this.isAuthenticatedSubject.next(true);

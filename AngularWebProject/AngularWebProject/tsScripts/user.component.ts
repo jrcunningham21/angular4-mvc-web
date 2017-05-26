@@ -25,8 +25,8 @@ export class UserFormComponent {
     selectedRole: any;
     userRoles: any;
 
-    email: string;
-    password: string;
+    //email: string;
+    //password: string;
 
     userRole: UserRole;
     roleList: UserRole[];   
@@ -43,15 +43,15 @@ export class UserFormComponent {
     }
 
     onRoleSelect(event) {
-        debugger;
+        
     }
     onUserSelect(event) {
-        debugger;
+        
     }
 
     getUsers() {
         //this.http.get('Identity/GetUsers')
-        this.authHttp.get('http://localhost:54449/api/Users/Get')
+        this.authHttp.get('http://localhost:54449/api/Users')
             .subscribe(
             (next) => {
                 this.users = next.json();
@@ -127,11 +127,11 @@ export class UserFormComponent {
             );
     }
 
-    submitForm() {
+    //onSubmitAuth() {
 
-        this.authService.login(this.email, this.password);
-        this.getUsers();
-    }
+    //    this.authService.login(this.email, this.password);
+    //    this.getUsers();
+    //}
 
     // TODO: Remove this when we're done
     get diagnostic() { return JSON.stringify(this.model); }

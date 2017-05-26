@@ -17,7 +17,8 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "    \n        <h2>My favorite skill is: {{myskills}}</h2>\n        <p>Skill:</p>\n        <ul>\n          <li *ngFor=\"let skl of skills\">\n            {{ skl }}\n          </li>        \n        </ul>    \n        <user-form></user-form>\n  "
+        template: "    \n        <h2>My favorite skill is: {{myskills}}</h2>\n        <p>Skill:</p>\n        <ul>\n          <li *ngFor=\"let skl of skills\">\n            {{ skl }}\n          </li>        \n        </ul>    \n        <a routerLink=\"/auth\" routerLinkActive=\"active\">Authorize</a>\n        <a routerLink=\"/users\" routerLinkActive=\"active\">Users</a>\n\n        <router-outlet></router-outlet>\n        <!-- Routed views go here -->\n\n  "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
+//# sourceMappingURL=app.component.js.map

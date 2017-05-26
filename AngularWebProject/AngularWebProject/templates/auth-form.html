@@ -1,0 +1,28 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-xs-12">
+            <h1 class="text-xs-center">Authorize</h1>
+            <form (ngSubmit)="onSubmitAuth()">
+                <fieldset>
+                    <fieldset class="form-group">
+                        <input placeholder="Email"
+                               name="email"
+                               [(ngModel)]="email"
+                               class="form-control form-control-lg"
+                               type="text" />
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input placeholder="Password"
+                               name="password"
+                               [(ngModel)]="password"
+                               class="form-control form-control-lg"
+                               type="password" />
+                    </fieldset>
+                    <button class="btn btn-lg btn-primary pull-xs-right" type="submit">
+                        Authorize
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

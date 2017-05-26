@@ -2,17 +2,17 @@
   "_args": [
     [
       "primeng@^4.0.0",
-      "C:\\Users\\jcunningham\\Desktop\\NewGit\\angular4-mvc-web\\AngularWebProject\\AngularWebProject"
+      "C:\\Users\\jcunningham\\Desktop\\AngularWeb\\angular4-mvc-web\\AngularWebProject\\AngularWebProject"
     ]
   ],
   "_from": "primeng@>=4.0.0-0 <5.0.0-0",
-  "_id": "primeng@4.0.0",
+  "_id": "primeng@4.0.1",
   "_inCache": true,
   "_location": "/primeng",
   "_nodeVersion": "7.7.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/primeng-4.0.0.tgz_1493581332036_0.46951314457692206"
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/primeng-4.0.1.tgz_1494920210579_0.4394627951551229"
   },
   "_npmUser": {
     "email": "cagatay.civici@gmail.com",
@@ -31,11 +31,11 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/primeng/-/primeng-4.0.0.tgz",
-  "_shasum": "6e813341fb30cf35cefde5f2e5d0c4cc000652e6",
+  "_resolved": "https://registry.npmjs.org/primeng/-/primeng-4.0.1.tgz",
+  "_shasum": "4d753a60d99e04308525c7f8b1d10ceb72a475f9",
   "_shrinkwrap": null,
   "_spec": "primeng@^4.0.0",
-  "_where": "C:\\Users\\jcunningham\\Desktop\\NewGit\\angular4-mvc-web\\AngularWebProject\\AngularWebProject",
+  "_where": "C:\\Users\\jcunningham\\Desktop\\AngularWeb\\angular4-mvc-web\\AngularWebProject\\AngularWebProject",
   "bugs": {
     "url": "https://github.com/primefaces/primeng/issues"
   },
@@ -59,10 +59,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "6e813341fb30cf35cefde5f2e5d0c4cc000652e6",
-    "tarball": "https://registry.npmjs.org/primeng/-/primeng-4.0.0.tgz"
+    "shasum": "4d753a60d99e04308525c7f8b1d10ceb72a475f9",
+    "tarball": "https://registry.npmjs.org/primeng/-/primeng-4.0.1.tgz"
   },
-  "gitHead": "655c0ea2c0c98e46a3865cb1cc0dd9739f927391",
+  "gitHead": "b192955e343384e2c03da2f9f4b82dcbea4702fb",
   "homepage": "https://github.com/primefaces/primeng#readme",
   "installable": true,
   "license": "MIT",
@@ -88,5 +88,5 @@
     "webpack-dev-server": "webpack-dev-server --inline",
     "webpack:w": "webpack -w"
   },
-  "version": "4.0.0"
+  "version": "4.0.1"
 }

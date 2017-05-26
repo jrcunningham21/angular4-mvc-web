@@ -9,7 +9,12 @@
             {{ skl }}
           </li>        
         </ul>    
-        <user-form></user-form>
+        <a routerLink="/auth" routerLinkActive="active">Authorize</a>
+        <a routerLink="/users" routerLinkActive="active">Users</a>
+
+        <router-outlet></router-outlet>
+        <!-- Routed views go here -->
+
   `
 })
 export class AppComponent {

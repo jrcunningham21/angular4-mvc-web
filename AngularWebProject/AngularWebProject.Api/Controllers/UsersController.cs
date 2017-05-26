@@ -9,12 +9,11 @@ using System.Web.Http;
 
 namespace AngularWebProject.Api.Controllers
 {
-    [Authorize]
-    [RoutePrefix("api/Users")]
+    //[Authorize]
+    [RoutePrefix("api")]
     public class UsersController : ApiController
     {
-        [HttpGet]
-        [Route("Get")]
+        [Route("Users"), HttpOptions]
         public IHttpActionResult GetUsers()
         {
             using (var _db = new ApplicationDbContext())

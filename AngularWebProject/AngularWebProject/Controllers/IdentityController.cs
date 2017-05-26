@@ -9,13 +9,9 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace AngularWebProject.Controllers
-{
+{    
     public class IdentityController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
         [HttpGet]
         public JsonResult GetUsers()
         {

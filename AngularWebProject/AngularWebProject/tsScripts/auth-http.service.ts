@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, XHRBackend, Headers, ConnectionBackend, RequestOptions, Response, RequestOptionsArgs } from '@angular/http';
+import { Http, XHRBackend, Headers, ConnectionBackend, RequestOptions, Response, RequestOptionsArgs, RequestMethod } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -20,9 +20,11 @@ export class AuthHttp extends Http {
         let authorizationData = this.token.getToken();
 
         options = options || new RequestOptions({
-            headers: new Headers()
+            headers: new Headers()            
         });
-        debugger;
+
+        options.headers.append('Content-Type', 'application/json');
+
         if (authorizationData)
             options.headers.append('Authorization', 'bearer ' + authorizationData);
 
@@ -30,6 +32,11 @@ export class AuthHttp extends Http {
     }
 
     get(url: string, options?: RequestOptionsArgs) {
+
+        options = options || new RequestOptions({
+            method: 'GET',
+            headers: new Headers()
+        });
         return super.get(url, this.addAuthHeaders(options));
     }
 

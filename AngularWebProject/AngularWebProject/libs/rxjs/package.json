@@ -2,7 +2,7 @@
   "_args": [
     [
       "rxjs@5.0.1",
-      "C:\\Users\\jcunningham\\Desktop\\NewGit\\angular4-mvc-web\\AngularWebProject\\AngularWebProject"
+      "C:\\Users\\jcunningham\\Desktop\\AngularWeb\\angular4-mvc-web\\AngularWebProject\\AngularWebProject"
     ]
   ],
   "_from": "rxjs@5.0.1",
@@ -35,7 +35,7 @@
   "_shasum": "3a69bdf9f0ca0a986303370d4708f72bdfac8356",
   "_shrinkwrap": null,
   "_spec": "rxjs@5.0.1",
-  "_where": "C:\\Users\\jcunningham\\Desktop\\NewGit\\angular4-mvc-web\\AngularWebProject\\AngularWebProject",
+  "_where": "C:\\Users\\jcunningham\\Desktop\\AngularWeb\\angular4-mvc-web\\AngularWebProject\\AngularWebProject",
   "author": {
     "email": "blesh@netflix.com",
     "name": "Ben Lesh"

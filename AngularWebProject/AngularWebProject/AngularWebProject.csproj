@@ -1853,10 +1853,14 @@
     <TypeScriptCompile Include="libs\rxjs\util\toSubscriber.d.ts" />
     <TypeScriptCompile Include="libs\rxjs\util\tryCatch.d.ts" />
     <TypeScriptCompile Include="libs\rxjs\util\UnsubscriptionError.d.ts" />
+    <Content Include="templates\auth-form.html" />
+    <TypeScriptCompile Include="tsScripts\app-routing.module.ts" />
     <TypeScriptCompile Include="tsScripts\app.component.ts" />
     <TypeScriptCompile Include="tsScripts\app.module.ts" />
     <TypeScriptCompile Include="tsScripts\auth-http.service.ts" />
+    <TypeScriptCompile Include="tsScripts\auth.component.ts" />
     <TypeScriptCompile Include="tsScripts\auth.service.ts" />
+    <TypeScriptCompile Include="tsScripts\not-found.component.ts" />
     <TypeScriptCompile Include="tsScripts\token.service.ts" />
     <TypeScriptCompile Include="tsScripts\main.ts" />
     <TypeScriptCompile Include="tsScripts\user.component.ts" />
@@ -1887,7 +1891,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>41020</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
