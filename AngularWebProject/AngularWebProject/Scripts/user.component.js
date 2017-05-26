@@ -17,12 +17,14 @@ var user_role_model_1 = require("./Models/user-role.model");
 var user_service_1 = require("./user.service");
 var auth_service_1 = require("./auth.service");
 var auth_http_service_1 = require("./auth-http.service");
+var token_service_1 = require("./token.service");
 var UserFormComponent = (function () {
-    function UserFormComponent(http, userService, authService, authHttp) {
+    function UserFormComponent(http, userService, authService, authHttp, tokenService) {
         this.http = http;
         this.userService = userService;
         this.authService = authService;
         this.authHttp = authHttp;
+        this.tokenService = tokenService;
         this.model = new user_model_1.User();
         this.getUsers();
         this.getRoles();
@@ -94,8 +96,13 @@ var UserFormComponent = (function () {
         }, function (error) { return console.log(error); });
     };
     UserFormComponent.prototype.submitForm = function () {
+        this.token = "";
         this.authService.login(this.email, this.password);
-        this.getUsers();
+        this.token = this.tokenService.getToken();
+    };
+    UserFormComponent.prototype.onUnAuthorize = function () {
+        this.tokenService.destroyToken();
+        this.token = this.tokenService.getToken();
     };
     Object.defineProperty(UserFormComponent.prototype, "diagnostic", {
         // TODO: Remove this when we're done
@@ -118,6 +125,8 @@ UserFormComponent = __decorate([
     __metadata("design:paramtypes", [http_1.Http,
         user_service_1.UserService,
         auth_service_1.AuthenticationService,
-        auth_http_service_1.AuthHttp])
+        auth_http_service_1.AuthHttp,
+        token_service_1.TokenService])
 ], UserFormComponent);
 exports.UserFormComponent = UserFormComponent;
+//# sourceMappingURL=user.component.js.map

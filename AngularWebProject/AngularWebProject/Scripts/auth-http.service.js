@@ -30,7 +30,6 @@ var AuthHttp = (function (_super) {
         options = options || new http_1.RequestOptions({
             headers: new http_1.Headers()
         });
-        debugger;
         if (authorizationData)
             options.headers.append('Authorization', 'bearer ' + authorizationData);
         return options;
@@ -59,3 +58,4 @@ AuthHttp = __decorate([
         http_1.RequestOptions])
 ], AuthHttp);
 exports.AuthHttp = AuthHttp;
+//# sourceMappingURL=auth-http.service.js.map

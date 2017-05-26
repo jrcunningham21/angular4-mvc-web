@@ -22,7 +22,7 @@ export class AuthHttp extends Http {
         options = options || new RequestOptions({
             headers: new Headers()
         });
-        debugger;
+        
         if (authorizationData)
             options.headers.append('Authorization', 'bearer ' + authorizationData);
 

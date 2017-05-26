@@ -11,6 +11,7 @@ import { UserRole } from './Models/user-role.model';
 import { UserService } from './user.service';
 import { AuthenticationService } from './auth.service';
 import { AuthHttp } from './auth-http.service';
+import { TokenService } from './token.service';
 
 @Component({
     selector: 'user-form',
@@ -27,6 +28,7 @@ export class UserFormComponent {
 
     email: string;
     password: string;
+    token: any;
 
     userRole: UserRole;
     roleList: UserRole[];   
@@ -36,7 +38,8 @@ export class UserFormComponent {
         private http: Http,
         private userService: UserService,
         private authService: AuthenticationService,
-        private authHttp: AuthHttp
+        private authHttp: AuthHttp,
+        private tokenService: TokenService
     ) { 
         this.getUsers();
         this.getRoles();
@@ -128,9 +131,14 @@ export class UserFormComponent {
     }
 
     submitForm() {
-
+        this.token = "";
         this.authService.login(this.email, this.password);
-        this.getUsers();
+        this.token = this.tokenService.getToken();
+    }
+
+    onUnAuthorize() {
+        this.tokenService.destroyToken();
+        this.token = this.tokenService.getToken();
     }
 
     // TODO: Remove this when we're done

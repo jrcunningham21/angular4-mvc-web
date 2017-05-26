@@ -15,5 +15,4 @@ export class TokenService {
     destroyToken() {
         window.localStorage.removeItem('MyAngularToken');
     }
-
 }

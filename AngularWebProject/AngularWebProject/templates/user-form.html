@@ -23,8 +23,14 @@
                     <button class="btn btn-lg btn-primary pull-xs-right" type="submit">
                         Authorize
                     </button>
+                    <button (click)="onUnAuthorize()" class="btn btn-lg btn-danger pull-xs-right">
+                        Unauthorize
+                    </button>
                 </fieldset>
             </form>
+        </div>
+        <div class="col-md-6 offset-md-3 col-xs-12">
+            <h3>{{token}}</h3>
         </div>
     </div>
     <div class="row">
