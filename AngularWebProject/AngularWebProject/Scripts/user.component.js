@@ -28,16 +28,14 @@ var UserFormComponent = (function () {
         this.getRoles();
     }
     UserFormComponent.prototype.onRoleSelect = function (event) {
-        debugger;
     };
     UserFormComponent.prototype.onUserSelect = function (event) {
-        debugger;
     };
     UserFormComponent.prototype.getUsers = function () {
         var _this = this;
         //this.http.get('Identity/GetUsers')
-        this.authHttp.get('http://localhost:54449/api/Users')
-            .subscribe(function (next) {
+        this.authHttp.get('http://localhost:54449/api/Users').subscribe(function (next) {
+            debugger;
             _this.users = next.json();
             var usersLength = _this.users.length;
             var username = "";

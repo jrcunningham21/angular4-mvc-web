@@ -43,7 +43,6 @@ var AuthenticationService = (function () {
         var _this = this;
         this.http.post(this.baseAuthUrl + 'Token', "grant_type=password&username=" + email + "&password=" + password)
             .subscribe(function (success) {
-            debugger;
             var response = success.json();
             _this.tokenService.saveToken(response.access_token);
             _this.isAuthenticatedSubject.next(true);

@@ -13,7 +13,6 @@ var TokenService = (function () {
         return window.localStorage['MyAngularToken'];
     };
     TokenService.prototype.saveToken = function (token) {
-        debugger;
         window.localStorage['MyAngularToken'] = token;
     };
     TokenService.prototype.destroyToken = function () {

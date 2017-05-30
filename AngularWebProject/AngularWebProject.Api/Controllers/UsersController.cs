@@ -13,7 +13,7 @@ namespace AngularWebProject.Api.Controllers
     [RoutePrefix("api")]
     public class UsersController : ApiController
     {
-        [Route("Users"), HttpOptions]
+        [Route("Users"), HttpGet]
         public IHttpActionResult GetUsers()
         {
             using (var _db = new ApplicationDbContext())

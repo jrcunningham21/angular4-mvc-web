@@ -51,9 +51,9 @@ export class UserFormComponent {
 
     getUsers() {
         //this.http.get('Identity/GetUsers')
-        this.authHttp.get('http://localhost:54449/api/Users')
-            .subscribe(
+        this.authHttp.get('http://localhost:54449/api/Users').subscribe(
             (next) => {
+                debugger;
                 this.users = next.json();
                 var usersLength = this.users.length;
                 var username = "";
