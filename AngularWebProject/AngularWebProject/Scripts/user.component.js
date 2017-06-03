@@ -9,27 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise.js");
 require("rxjs/add/operator/map");
 var user_model_1 = require("./Models/user.model");
 var user_role_model_1 = require("./Models/user-role.model");
 var user_service_1 = require("./user.service");
-var auth_service_1 = require("./auth.service");
 var auth_http_service_1 = require("./auth-http.service");
-var router_1 = require("@angular/router");
 var UserFormComponent = (function () {
-    function UserFormComponent(http, userService, authService, authHttp, activatedRoute) {
-        this.http = http;
+    function UserFormComponent(userService, authHttp) {
         this.userService = userService;
-        this.authService = authService;
         this.authHttp = authHttp;
-        this.activatedRoute = activatedRoute;
         this.model = new user_model_1.User();
-        //this.getUsers();
-        //this.getRoles();
     }
     UserFormComponent.prototype.ngOnInit = function () {
+        this.getUsers();
+        this.getRoles();
     };
     UserFormComponent.prototype.onRoleSelect = function (event) {
     };
@@ -37,8 +31,7 @@ var UserFormComponent = (function () {
     };
     UserFormComponent.prototype.getUsers = function () {
         var _this = this;
-        //this.http.get('Identity/GetUsers')
-        this.authHttp.get('http://localhost:54449/api/Users').subscribe(function (next) {
+        this.authHttp.get('http://localhost:54449/api/Users/GetUsers').subscribe(function (next) {
             ;
             _this.users = next.json();
             var usersLength = _this.users.length;
@@ -63,7 +56,7 @@ var UserFormComponent = (function () {
     };
     UserFormComponent.prototype.getRoles = function () {
         var _this = this;
-        this.http.get('Identity/GetRoles')
+        this.authHttp.get('http://localhost:54449/api/Users/GetRoles')
             .subscribe(function (next) {
             _this.roles = next.json();
         }, function (error) { return console.log(error); });
@@ -71,7 +64,7 @@ var UserFormComponent = (function () {
     UserFormComponent.prototype.onAddUserToRole = function () {
         var _this = this;
         var data = { user: this.selectedUser, roleName: this.selectedRole.Name };
-        this.http.post('Identity/AddUserToRole', data)
+        this.authHttp.post('http://localhost:54449/api/Users/AddUserToRole', data)
             .subscribe(function (next) {
             _this.selectedRole = null;
             _this.selectedUser = null;
@@ -80,7 +73,12 @@ var UserFormComponent = (function () {
     };
     UserFormComponent.prototype.onSubmitRole = function () {
         var _this = this;
-        this.http.post('Identity/CreateRole', { roleName: this.role })
+        var str = [];
+        str.push(encodeURIComponent("roleName") + "=" + encodeURIComponent(this.role));
+        var formData = str.join();
+        debugger;
+        //var data = encodeURIComponent("roleName") + "=" +  encodeURIComponent(this.role);
+        this.authHttp.post('http://localhost:54449/api/Users/CreateRole', formData)
             .subscribe(function (next) {
             _this.getRoles();
             _this.role = "";
@@ -88,18 +86,19 @@ var UserFormComponent = (function () {
     };
     UserFormComponent.prototype.onSubmitUser = function () {
         var _this = this;
-        var data = { user: this.model, password: this.model.password };
-        this.http.post('Identity/CreateUser', data)
+        var str = [];
+        for (var p in this.model) {
+            debugger;
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(this.model[p]));
+        }
+        var formData = str.join("&");
+        this.authHttp.post('http://localhost:54449/api/Users/CreateUser', formData)
             .subscribe(function (next) {
             _this.getUsers();
             _this.model = new user_model_1.User();
         }, function (error) { return console.log(error); });
     };
     Object.defineProperty(UserFormComponent.prototype, "diagnostic", {
-        //onSubmitAuth() {
-        //    this.authService.login(this.email, this.password);
-        //    this.getUsers();
-        //}
         // TODO: Remove this when we're done
         get: function () { return JSON.stringify(this.model); },
         enumerable: true,
@@ -117,10 +116,7 @@ UserFormComponent = __decorate([
         selector: 'user-form',
         templateUrl: './templates/user-form.html'
     }),
-    __metadata("design:paramtypes", [http_1.Http,
-        user_service_1.UserService,
-        auth_service_1.AuthenticationService,
-        auth_http_service_1.AuthHttp,
-        router_1.ActivatedRoute])
+    __metadata("design:paramtypes", [user_service_1.UserService,
+        auth_http_service_1.AuthHttp])
 ], UserFormComponent);
 exports.UserFormComponent = UserFormComponent;

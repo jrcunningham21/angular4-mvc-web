@@ -17,28 +17,34 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
-var token_service_1 = require("./token.service");
 var AuthHttp = (function (_super) {
     __extends(AuthHttp, _super);
-    function AuthHttp(token, backend, defaultOptions) {
-        var _this = _super.call(this, backend, defaultOptions) || this;
-        _this.token = token;
+    //private token: TokenService;
+    function AuthHttp(backend, options) {
+        var _this = this;
+        options.headers.set('Content-Type', 'application/x-www-form-urlencoded');
+        _this = _super.call(this, backend, options) || this;
         return _this;
     }
     AuthHttp.prototype.addAuthHeaders = function (options) {
-        var authorizationData = this.token.getToken();
+        //let authorizationData = this.token.getToken();
         options = options || new http_1.RequestOptions({
             headers: new http_1.Headers()
         });
-        if (authorizationData)
-            options.headers.append('Authorization', 'bearer ' + authorizationData);
+        //if (authorizationData)
+        //    options.headers.append('Authorization', 'bearer ' + authorizationData);
         return options;
     };
     AuthHttp.prototype.get = function (url, options) {
         return _super.prototype.get.call(this, url, this.addAuthHeaders(options));
     };
     AuthHttp.prototype.post = function (url, body, options) {
-        return _super.prototype.post.call(this, url, body, this.addAuthHeaders(options));
+        options = options || new http_1.RequestOptions({
+            headers: new http_1.Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }),
+            body: body,
+            method: http_1.RequestMethod.Post
+        });
+        return _super.prototype.post.call(this, url, body, options);
     };
     AuthHttp.prototype.put = function (url, body, options) {
         return _super.prototype.put.call(this, url, body, this.addAuthHeaders(options));
@@ -53,8 +59,7 @@ var AuthHttp = (function (_super) {
 }(http_1.Http));
 AuthHttp = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [token_service_1.TokenService,
-        http_1.XHRBackend,
+    __metadata("design:paramtypes", [http_1.XHRBackend,
         http_1.RequestOptions])
 ], AuthHttp);
 exports.AuthHttp = AuthHttp;

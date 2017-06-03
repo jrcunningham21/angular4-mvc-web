@@ -316,8 +316,12 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="gulpfile.js" />
+    <Content Include="Scripts\app-routing.module.js" />
     <Content Include="Scripts\app.component.js" />
     <Content Include="Scripts\app.module.js" />
+    <Content Include="Scripts\auth-http.service.js" />
+    <Content Include="Scripts\auth.component.js" />
+    <Content Include="Scripts\auth.service.js" />
     <Content Include="Scripts\js\bootstrap.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -326,6 +330,10 @@
     <Content Include="package.json" />
     <Content Include="Scripts\app.component.js.map" />
     <Content Include="Scripts\app.module.js.map" />
+    <Content Include="Scripts\app-routing.module.js.map" />
+    <Content Include="Scripts\auth-http.service.js.map" />
+    <Content Include="Scripts\auth.component.js.map" />
+    <Content Include="Scripts\auth.service.js.map" />
     <None Include="Scripts\js\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\js\jquery-1.10.2.js" />
     <Content Include="Scripts\js\jquery-1.10.2.min.js" />
@@ -340,7 +348,11 @@
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\Models\user-role.model.js" />
     <Content Include="Scripts\Models\user.model.js" />
+    <Content Include="Scripts\not-found.component.js" />
+    <Content Include="Scripts\spotify.component.js" />
+    <Content Include="Scripts\spotify.service.js" />
     <Content Include="Scripts\systemjs.config.js" />
+    <Content Include="Scripts\token.service.js" />
     <Content Include="Scripts\user.component.js" />
     <Content Include="Scripts\user.module.js" />
     <Content Include="Scripts\user.service.js" />
@@ -372,6 +384,10 @@
     <Content Include="Scripts\user.component.js.map" />
     <Content Include="Scripts\user.module.js.map" />
     <Content Include="Scripts\user.service.js.map" />
+    <Content Include="Scripts\not-found.component.js.map" />
+    <Content Include="Scripts\spotify.component.js.map" />
+    <Content Include="Scripts\spotify.service.js.map" />
+    <Content Include="Scripts\token.service.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

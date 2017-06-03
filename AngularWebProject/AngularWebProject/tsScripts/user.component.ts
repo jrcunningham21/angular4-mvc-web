@@ -1,6 +1,6 @@
 ﻿import { OnInit, OnDestroy, Component } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, RequestOptions, RequestOptionsArgs, RequestMethod } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise.js';
@@ -9,7 +9,6 @@ import 'rxjs/add/operator/map';
 import { User } from './Models/user.model';
 import { UserRole } from './Models/user-role.model';
 import { UserService } from './user.service';
-import { AuthenticationService } from './auth.service';
 import { AuthHttp } from './auth-http.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -33,19 +32,18 @@ export class UserFormComponent {
     roleList: UserRole[];   
     roleString: string;
 
+    reqOptionArgs: RequestOptionsArgs;
+
     constructor(
-        private http: Http,
         private userService: UserService,
-        private authService: AuthenticationService,
-        private authHttp: AuthHttp,
-        private activatedRoute: ActivatedRoute
+        private authHttp: AuthHttp
     ) { 
-        //this.getUsers();
-        //this.getRoles();
+
     }
 
     ngOnInit() {
-
+        this.getUsers();
+        this.getRoles();
     }
 
     onRoleSelect(event) {
@@ -56,8 +54,7 @@ export class UserFormComponent {
     }
 
     getUsers() {
-        //this.http.get('Identity/GetUsers')
-        this.authHttp.get('http://localhost:54449/api/Users').subscribe(
+        this.authHttp.get('http://localhost:54449/api/Users/GetUsers').subscribe(
             (next) => {
                 ;
                 this.users = next.json();
@@ -88,7 +85,7 @@ export class UserFormComponent {
     }
 
     getRoles() {
-        this.http.get('Identity/GetRoles')
+        this.authHttp.get('http://localhost:54449/api/Users/GetRoles')
             .subscribe(
             next => {
                 this.roles = next.json();
@@ -99,7 +96,7 @@ export class UserFormComponent {
 
     onAddUserToRole() {
         var data = { user: this.selectedUser, roleName: this.selectedRole.Name };
-        this.http.post('Identity/AddUserToRole', data)
+        this.authHttp.post('http://localhost:54449/api/Users/AddUserToRole', data)
             .subscribe(
             next => {
                 this.selectedRole = null;
@@ -111,7 +108,12 @@ export class UserFormComponent {
     }
 
     onSubmitRole() {
-        this.http.post('Identity/CreateRole', { roleName: this.role })
+        var str = [];
+        str.push(encodeURIComponent("roleName") + "=" + encodeURIComponent(this.role))
+        var formData = str.join();
+        debugger;
+        //var data = encodeURIComponent("roleName") + "=" +  encodeURIComponent(this.role);
+        this.authHttp.post('http://localhost:54449/api/Users/CreateRole', formData)
             .subscribe(
             next => {
                 this.getRoles();
@@ -122,8 +124,12 @@ export class UserFormComponent {
     }
     
     onSubmitUser() {
-        var data = { user: this.model, password: this.model.password };
-        this.http.post('Identity/CreateUser', data)
+        var str = [];
+        for (var p in this.model)        
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(this.model[p]));
+        var formData = str.join("&");
+
+        this.authHttp.post('http://localhost:54449/api/Users/CreateUser', formData)
             .subscribe(
             next => {
                 this.getUsers();
@@ -132,12 +138,6 @@ export class UserFormComponent {
             error => console.log(error)
             );
     }
-
-    //onSubmitAuth() {
-
-    //    this.authService.login(this.email, this.password);
-    //    this.getUsers();
-    //}
 
     // TODO: Remove this when we're done
     get diagnostic() { return JSON.stringify(this.model); }

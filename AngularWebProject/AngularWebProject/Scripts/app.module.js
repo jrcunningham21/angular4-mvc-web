@@ -15,6 +15,8 @@ var app_routing_module_1 = require("./app-routing.module");
 var not_found_component_1 = require("./not-found.component");
 var auth_component_1 = require("./auth.component");
 var spotify_component_1 = require("./spotify.component");
+var http_1 = require("@angular/http");
+var auth_http_service_1 = require("./auth-http.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,6 +36,10 @@ AppModule = __decorate([
             auth_component_1.AuthFormComponent,
             spotify_component_1.SpotifyComponent
         ],
+        providers: [{
+                provide: http_1.Http,
+                useClass: auth_http_service_1.AuthHttp
+            }],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

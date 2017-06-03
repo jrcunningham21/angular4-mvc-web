@@ -10,6 +10,9 @@ import { PageNotFoundComponent } from './not-found.component';
 import { AuthFormComponent } from './auth.component';
 import { SpotifyComponent } from './spotify.component';
 
+import { Http, HttpModule, RequestOptions, XHRBackend } from '@angular/http';
+import { AuthHttp } from './auth-http.service';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -23,6 +26,9 @@ import { SpotifyComponent } from './spotify.component';
         AuthFormComponent,
         SpotifyComponent
     ],
+    providers: [{
+        provide: Http,
+        useClass: AuthHttp    }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, XHRBackend, Headers, ConnectionBackend, RequestOptions, Response, RequestOptionsArgs, RequestMethod } from '@angular/http';
+import { Http, XHRBackend, Headers, ConnectionBackend, Request, RequestOptions, Response, RequestOptionsArgs, RequestMethod } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -8,23 +8,26 @@ import { TokenService } from './token.service';
 
 @Injectable()
 export class AuthHttp extends Http {
-    constructor(
-        private token: TokenService,
+
+    //private token: TokenService;
+
+    constructor(        
         backend: XHRBackend,
-        defaultOptions: RequestOptions
+        options: RequestOptions
     ) {
-        super(backend, defaultOptions);
+        options.headers.set('Content-Type', 'application/x-www-form-urlencoded');
+        super(backend, options);
     }
 
     addAuthHeaders(options?: RequestOptionsArgs) {
-        let authorizationData = this.token.getToken();
+        //let authorizationData = this.token.getToken();
 
         options = options || new RequestOptions({
             headers: new Headers()            
         });
 
-        if (authorizationData)
-            options.headers.append('Authorization', 'bearer ' + authorizationData);
+        //if (authorizationData)
+        //    options.headers.append('Authorization', 'bearer ' + authorizationData);
 
         return options;
     }
@@ -34,7 +37,12 @@ export class AuthHttp extends Http {
     }
 
     post(url: string, body: any, options?: RequestOptionsArgs) {
-        return super.post(url, body, this.addAuthHeaders(options));
+        options = options || new RequestOptions({
+            headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }),
+            body: body,
+            method: RequestMethod.Post
+        });
+        return super.post(url, body, options);
     }
 
     put(url: string, body: any, options?: RequestOptionsArgs) {
