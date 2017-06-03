@@ -28,10 +28,9 @@ var AuthFormComponent = (function () {
 AuthFormComponent = __decorate([
     core_1.Component({
         selector: 'auth-form',
-        templateUrl: 'templates/auth-form.html'
+        templateUrl: './templates/auth-form.html'
     }),
     __metadata("design:paramtypes", [auth_service_1.AuthenticationService,
         auth_http_service_1.AuthHttp])
 ], AuthFormComponent);
 exports.AuthFormComponent = AuthFormComponent;
-//# sourceMappingURL=auth.component.js.map

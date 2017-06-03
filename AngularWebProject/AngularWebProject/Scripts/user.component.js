@@ -17,16 +17,20 @@ var user_role_model_1 = require("./Models/user-role.model");
 var user_service_1 = require("./user.service");
 var auth_service_1 = require("./auth.service");
 var auth_http_service_1 = require("./auth-http.service");
+var router_1 = require("@angular/router");
 var UserFormComponent = (function () {
-    function UserFormComponent(http, userService, authService, authHttp) {
+    function UserFormComponent(http, userService, authService, authHttp, activatedRoute) {
         this.http = http;
         this.userService = userService;
         this.authService = authService;
         this.authHttp = authHttp;
+        this.activatedRoute = activatedRoute;
         this.model = new user_model_1.User();
-        this.getUsers();
-        this.getRoles();
+        //this.getUsers();
+        //this.getRoles();
     }
+    UserFormComponent.prototype.ngOnInit = function () {
+    };
     UserFormComponent.prototype.onRoleSelect = function (event) {
     };
     UserFormComponent.prototype.onUserSelect = function (event) {
@@ -35,7 +39,7 @@ var UserFormComponent = (function () {
         var _this = this;
         //this.http.get('Identity/GetUsers')
         this.authHttp.get('http://localhost:54449/api/Users').subscribe(function (next) {
-            debugger;
+            ;
             _this.users = next.json();
             var usersLength = _this.users.length;
             var username = "";
@@ -111,12 +115,12 @@ var UserFormComponent = (function () {
 UserFormComponent = __decorate([
     core_1.Component({
         selector: 'user-form',
-        templateUrl: 'templates/user-form.html'
+        templateUrl: './templates/user-form.html'
     }),
     __metadata("design:paramtypes", [http_1.Http,
         user_service_1.UserService,
         auth_service_1.AuthenticationService,
-        auth_http_service_1.AuthHttp])
+        auth_http_service_1.AuthHttp,
+        router_1.ActivatedRoute])
 ], UserFormComponent);
 exports.UserFormComponent = UserFormComponent;
-//# sourceMappingURL=user.component.js.map

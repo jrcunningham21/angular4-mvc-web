@@ -8,8 +8,16 @@ export class TokenService {
         return window.localStorage['MyAngularToken'];
     }
 
+    getSpotifyToken(): String {
+        return window.localStorage['spotify-token'];
+    }
+
     saveToken(token: String) {
         window.localStorage['MyAngularToken'] = token;
+    }
+
+    saveSpotifyToken(token: String) {
+        window.localStorage['spotify-token'] = token;
     }
 
     destroyToken() {

@@ -20,10 +20,9 @@ require("rxjs/add/operator/catch");
 var token_service_1 = require("./token.service");
 var AuthHttp = (function (_super) {
     __extends(AuthHttp, _super);
-    function AuthHttp(token, backend, defaultOptions, http) {
+    function AuthHttp(token, backend, defaultOptions) {
         var _this = _super.call(this, backend, defaultOptions) || this;
         _this.token = token;
-        _this.http = http;
         return _this;
     }
     AuthHttp.prototype.addAuthHeaders = function (options) {
@@ -36,7 +35,7 @@ var AuthHttp = (function (_super) {
         return options;
     };
     AuthHttp.prototype.get = function (url, options) {
-        return this.http.get(url, this.addAuthHeaders(options));
+        return _super.prototype.get.call(this, url, this.addAuthHeaders(options));
     };
     AuthHttp.prototype.post = function (url, body, options) {
         return _super.prototype.post.call(this, url, body, this.addAuthHeaders(options));
@@ -56,8 +55,6 @@ AuthHttp = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [token_service_1.TokenService,
         http_1.XHRBackend,
-        http_1.RequestOptions,
-        http_1.Http])
+        http_1.RequestOptions])
 ], AuthHttp);
 exports.AuthHttp = AuthHttp;
-//# sourceMappingURL=auth-http.service.js.map

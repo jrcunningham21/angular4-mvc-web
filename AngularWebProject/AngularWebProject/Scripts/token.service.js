@@ -12,8 +12,14 @@ var TokenService = (function () {
     TokenService.prototype.getToken = function () {
         return window.localStorage['MyAngularToken'];
     };
+    TokenService.prototype.getSpotifyToken = function () {
+        return window.localStorage['spotify-token'];
+    };
     TokenService.prototype.saveToken = function (token) {
         window.localStorage['MyAngularToken'] = token;
+    };
+    TokenService.prototype.saveSpotifyToken = function (token) {
+        window.localStorage['spotify-token'] = token;
     };
     TokenService.prototype.destroyToken = function () {
         window.localStorage.removeItem('MyAngularToken');
@@ -24,4 +30,3 @@ TokenService = __decorate([
     core_1.Injectable()
 ], TokenService);
 exports.TokenService = TokenService;
-//# sourceMappingURL=token.service.js.map

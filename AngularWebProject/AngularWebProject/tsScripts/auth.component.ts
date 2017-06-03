@@ -11,7 +11,7 @@ import { AuthHttp } from './auth-http.service';
 
 @Component({
     selector: 'auth-form',
-    templateUrl: 'templates/auth-form.html'
+    templateUrl: './templates/auth-form.html'
 })
 export class AuthFormComponent {
 

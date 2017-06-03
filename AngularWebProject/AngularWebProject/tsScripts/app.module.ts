@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './not-found.component';
 import { AuthFormComponent } from './auth.component';
-
+import { SpotifyComponent } from './spotify.component';
 
 @NgModule({
     imports: [
@@ -20,7 +20,8 @@ import { AuthFormComponent } from './auth.component';
     declarations: [
         AppComponent,
         PageNotFoundComponent,
-        AuthFormComponent
+        AuthFormComponent,
+        SpotifyComponent
     ],
     bootstrap: [AppComponent]
 })

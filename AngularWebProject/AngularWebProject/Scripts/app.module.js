@@ -14,6 +14,7 @@ var app_component_1 = require("./app.component");
 var app_routing_module_1 = require("./app-routing.module");
 var not_found_component_1 = require("./not-found.component");
 var auth_component_1 = require("./auth.component");
+var spotify_component_1 = require("./spotify.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -30,10 +31,10 @@ AppModule = __decorate([
         declarations: [
             app_component_1.AppComponent,
             not_found_component_1.PageNotFoundComponent,
-            auth_component_1.AuthFormComponent
+            auth_component_1.AuthFormComponent,
+            spotify_component_1.SpotifyComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
 exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map

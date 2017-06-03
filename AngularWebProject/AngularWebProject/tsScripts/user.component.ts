@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { OnInit, OnDestroy, Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
@@ -11,10 +11,11 @@ import { UserRole } from './Models/user-role.model';
 import { UserService } from './user.service';
 import { AuthenticationService } from './auth.service';
 import { AuthHttp } from './auth-http.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
     selector: 'user-form',
-    templateUrl: 'templates/user-form.html'
+    templateUrl: './templates/user-form.html'
 })
 export class UserFormComponent {
     model = new User();
@@ -36,10 +37,15 @@ export class UserFormComponent {
         private http: Http,
         private userService: UserService,
         private authService: AuthenticationService,
-        private authHttp: AuthHttp
+        private authHttp: AuthHttp,
+        private activatedRoute: ActivatedRoute
     ) { 
-        this.getUsers();
-        this.getRoles();
+        //this.getUsers();
+        //this.getRoles();
+    }
+
+    ngOnInit() {
+
     }
 
     onRoleSelect(event) {
@@ -53,7 +59,7 @@ export class UserFormComponent {
         //this.http.get('Identity/GetUsers')
         this.authHttp.get('http://localhost:54449/api/Users').subscribe(
             (next) => {
-                debugger;
+                ;
                 this.users = next.json();
                 var usersLength = this.users.length;
                 var username = "";

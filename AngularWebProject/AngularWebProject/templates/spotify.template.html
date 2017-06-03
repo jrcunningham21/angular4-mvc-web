@@ -1,0 +1,15 @@
+﻿<h1>SPOTIFY</h1>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div *ngIf="!!user"> {{user.email}} </div>
+        </div>
+        <div class="col-md-6">
+            <div *ngFor="let rt of recentTracks">
+                {{ rt.track.name }}
+            </div>
+        </div>
+    </div>
+</div>

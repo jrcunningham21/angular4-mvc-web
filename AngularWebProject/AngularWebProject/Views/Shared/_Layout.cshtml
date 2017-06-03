@@ -6,13 +6,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Angular Application</title>
+    <script>
+          window.onload = function () {
+              var hash = window.location.hash;
+              if (window.location.search.substring(1).indexOf("error") !== -1) {
+                  // login failure
+                  window.close();
+              } else if (hash) {
+                  // login success
+                  var token = window.location.hash.split('&')[0].split('=')[1];
+                  localStorage.setItem('spotify-token', token);
+              }
+          }
+    </script>
 
     <!-- 1. Load libraries -->
     <!-- Polyfill(s) for older browsers -->
 
-    <script src="~/libs/core-js/client/shim.min.js"></script>
+    @*<script src="~/libs/core-js/client/shim.min.js"></script>
     <script src="~/libs/zone.js/dist/zone.js"></script>
-    <script src="~/libs/systemjs/dist/system.src.js"></script>
+    <script src="~/libs/systemjs/dist/system.src.js"></script>*@
+
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>    
 
     <!-- 2. Configure SystemJS -->
     <script src="~/Scripts/systemjs.config.js"></script>
@@ -52,7 +69,7 @@
     <div class="container body-content">
         <my-app>
             @RenderBody()
-        </my-app> 
+        </my-app>
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>

@@ -18,6 +18,15 @@ namespace AngularWebProject
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            // when the user types in a link handled by client side routing to the address bar 
+            // or refreshes the page, that triggers the server routing. The server should pass 
+            // that onto the client, so Angular can handle the route
+            routes.MapRoute(
+                name: "angular",
+                url: "{*url}",
+                defaults: new { controller = "Home", action = "Index" }
+            );
         }
     }
 }

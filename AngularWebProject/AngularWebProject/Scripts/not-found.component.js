@@ -17,4 +17,3 @@ PageNotFoundComponent = __decorate([
     })
 ], PageNotFoundComponent);
 exports.PageNotFoundComponent = PageNotFoundComponent;
-//# sourceMappingURL=not-found.component.js.map
