@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularWebProject", "Angula
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularWebProject.Api", "AngularWebProject.Api\AngularWebProject.Api.csproj", "{39D678CE-45DF-46A4-BA94-E75FFFB3B953}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AngularWebProject.Database", "AngularWebProject.Database\AngularWebProject.Database.sqlproj", "{D377B0F4-FF4B-481D-BF28-83B6E55E22E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{39D678CE-45DF-46A4-BA94-E75FFFB3B953}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39D678CE-45DF-46A4-BA94-E75FFFB3B953}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39D678CE-45DF-46A4-BA94-E75FFFB3B953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D377B0F4-FF4B-481D-BF28-83B6E55E22E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D377B0F4-FF4B-481D-BF28-83B6E55E22E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D377B0F4-FF4B-481D-BF28-83B6E55E22E9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D377B0F4-FF4B-481D-BF28-83B6E55E22E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D377B0F4-FF4B-481D-BF28-83B6E55E22E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D377B0F4-FF4B-481D-BF28-83B6E55E22E9}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
