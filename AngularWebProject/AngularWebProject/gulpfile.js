@@ -39,12 +39,12 @@ var clean = require('gulp-clean');
 //        .pipe(gulp.dest('./libs'));
 //});
 
-var tsProject = ts.createProject('tsScripts/tsconfig.json', {
+var tsProject = ts.createProject('Scripts/app/tsconfig.json', {
     typescript: require('typescript')
 });
 gulp.task('ts', function (done) {
     var tsResult = gulp.src([
-        "tsScripts/*.ts"
+        "Scripts/app/*.ts"
     ])
     .pipe(tsProject(), undefined, ts.reporter.fullReporter());
     return tsResult.js.pipe(gulp.dest('./Scripts'));
@@ -53,7 +53,7 @@ gulp.task('ts', function (done) {
 gulp.task('watch', ['watch.ts']);
 
 gulp.task('watch.ts', ['ts'], function () {
-    return gulp.watch('tsScripts/*.ts', ['ts']);
+    return gulp.watch('Scripts/app/*.ts', ['ts']);
 });
 
 gulp.task('default', ['ts']);
